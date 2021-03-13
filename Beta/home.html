@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Kirjeenkirjoittaja</title>
+    <style>
+      form {
+        width: 420px;
+      }
+
+      div {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: inline-block;
+        width: 240px;
+        text-align: right;
+        padding-right: 10px;
+      }
+
+      button, input {
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="post" action="https://europe-west1-projectfortesting12.cloudfunctions.net/function-2">
+      <div>
+        <label for="say">Viesti henkilölle: </label>
+        <input name="message" id="say" value="message">
+      </div>
+      <div>
+        <label for="to">Kelle kirjoitetaan?</label>
+        <input name="to" value="Mom">
+      </div>
+      <div>
+        <button>Muodosta Kirje!</button>
+      </div>
+      <div class="container2">  
+        <iframe width="70%" height="70%" src="https://www.finlex.fi/fi/laki/ajantasa/1996/19960247" frameborder="2" scrolling="auto" allowfullscreen>
+        </iframe>
+      </div>
+    </form>
+  </body>
+</html>
