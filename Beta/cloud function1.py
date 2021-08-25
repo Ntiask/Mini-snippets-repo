@@ -13,7 +13,7 @@ bucket = storage_client.bucket(bucket_name)
 blob = bucket.blob(source_blob_name)
 blob.download_to_filename(destination_file_name)
 
-def hello_world(request):
+def read_request(request):
     # handle the POST request
     if request.method == 'POST':
         Value1 = request.form.get('Name')
