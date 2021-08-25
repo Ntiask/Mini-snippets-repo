@@ -2,14 +2,13 @@ import requests
 import os
 import fnmatch
 
-#### Author: Niko Tiaskorpi ,  Tämä ohjelmisto on tehty lataamaan hankinta raportit zendeskiin juuri siitä kansiosta missä olet.
-#### Se lataa tiedostot sen asiakkaan zendesk artikkeliin kun tiedoston nimessä lukee.  joten nimeä tiedostot OIKEIN!
-#### Käytä omalla vastuulla ja vain jos tiedät mitä teet!
+#### This piece of code will upload multiple files from current folder to zendesk ticket system using zendesk API with certain Criterias
+#### Used to automate report handling.
 
 username = input('Zendesk Username: ')
 password = input('Zendesk Password: ')
 
-response = requests.get('https://crayonfi.zendesk.com/api/v2/users.json', auth=(username, password))
+response = requests.get('https://XXXX.zendesk.com/api/v2/users.json', auth=(username, password))
 if response.ok == True:
     print('Login succesful')
 
@@ -21,19 +20,19 @@ for file in os.listdir('.'):
 print('Uploading files...')
 
 for file in os.listdir('.'):
-    if fnmatch.fnmatch(file, '*Atria_Hankintaraportti*'):
+    if fnmatch.fnmatch(file, '*XXXXX_Hankintaraportti*'):
         tiedosto = file
         files = {
             'inline': (None, 'false'),
             'file': (tiedosto, open(tiedosto, 'rb')),
         }
 
-        response = requests.post('https://crayonfi.zendesk.com/api/v2/help_center/fi/articles/360003071039/attachments.json', files=files, auth=(username, password))
+        response = requests.post('https://XXXXX.zendesk.com/api/v2/help_center/fi/articles/360003071039/attachments.json', files=files, auth=(username, password))
 
         if response.ok == True:
             print(file, 'Uploaded Succesfully')
 
-    elif fnmatch.fnmatch(file, '*ELO_Hankintaraportti*'):
+    elif fnmatch.fnmatch(file, '*XXXX_Hankintaraportti*'):
         
         tiedosto = file
         files = {
@@ -41,12 +40,12 @@ for file in os.listdir('.'):
             'file': (tiedosto, open(tiedosto, 'rb')),
         }
 
-        response = requests.post('https://crayonfi.zendesk.com/api/v2/help_center/fi/articles/115001443144/attachments.json', files=files, auth=(username, password))
+        response = requests.post('https://XXXXXXX.zendesk.com/api/v2/help_center/fi/articles/115001443144/attachments.json', files=files, auth=(username, password))
 
         if response.ok == True:
             print(file, 'Uploaded Succesfully')
 
-    elif fnmatch.fnmatch(file, '*Metso_Minerals*'):
+    elif fnmatch.fnmatch(file, '*XXXX_Minerals*'):
         
         tiedosto = file
         files = {
@@ -54,12 +53,12 @@ for file in os.listdir('.'):
             'file': (tiedosto, open(tiedosto, 'rb')),
         }
 
-        response = requests.post('https://crayonfi.zendesk.com/api/v2/help_center/fi/articles/115001339230/attachments.json', files=files, auth=(username, password))
+        response = requests.post('https://XXXXX.zendesk.com/api/v2/help_center/fi/articles/115001339230/attachments.json', files=files, auth=(username, password))
 
         if response.ok == True:
             print(file, 'Uploaded Succesfully')
 
-    elif fnmatch.fnmatch(file, '*Patria_Hankintaraportti*'):
+    elif fnmatch.fnmatch(file, '*XXXXXX_Hankintaraportti*'):
         
         tiedosto = file
         files = {
@@ -67,12 +66,12 @@ for file in os.listdir('.'):
             'file': (tiedosto, open(tiedosto, 'rb')),
         }
 
-        response = requests.post('https://crayonfi.zendesk.com/api/v2/help_center/fi/articles/360001231604/attachments.json', files=files, auth=(username, password))
+        response = requests.post('https://XXXXX.zendesk.com/api/v2/help_center/fi/articles/360001231604/attachments.json', files=files, auth=(username, password))
 
         if response.ok == True:
             print(file, 'Uploaded Succesfully')
 
-    elif fnmatch.fnmatch(file, '*Solita Hankintaraportti*'):
+    elif fnmatch.fnmatch(file, '*XXXX Hankintaraportti*'):
         
         tiedosto = file
         files = {
@@ -80,12 +79,12 @@ for file in os.listdir('.'):
             'file': (tiedosto, open(tiedosto, 'rb')),
         }
 
-        response = requests.post('https://crayonfi.zendesk.com/api/v2/help_center/fi/articles/360000254924/attachments.json', files=files, auth=(username, password))
+        response = requests.post('https://XXXXX.zendesk.com/api/v2/help_center/fi/articles/360000254924/attachments.json', files=files, auth=(username, password))
 
         if response.ok == True:
             print(file, 'Uploaded Succesfully')
 
-    elif fnmatch.fnmatch(file, '*St1_Purchase_Report*'):
+    elif fnmatch.fnmatch(file, '*XXXXXX_Purchase_Report*'):
         
         tiedosto = file
         files = {
@@ -93,12 +92,12 @@ for file in os.listdir('.'):
             'file': (tiedosto, open(tiedosto, 'rb')),
         }
 
-        response = requests.post('https://crayonfi.zendesk.com/api/v2/help_center/fi/articles/115001184310/attachments.json', files=files, auth=(username, password))
+        response = requests.post('https://XXXXXX.zendesk.com/api/v2/help_center/fi/articles/115001184310/attachments.json', files=files, auth=(username, password))
 
         if response.ok == True:
             print(file, 'Uploaded Succesfully')
 
-    elif fnmatch.fnmatch(file, '*Tyollisyysrahasto_Hankintaraportti*'):
+    elif fnmatch.fnmatch(file, '*XXXXX_Hankintaraportti*'):
         
         tiedosto = file
         files = {
@@ -106,12 +105,12 @@ for file in os.listdir('.'):
             'file': (tiedosto, open(tiedosto, 'rb')),
         }
 
-        response = requests.post('https://crayonfi.zendesk.com/api/v2/help_center/fi/articles/115001339250/attachments.json', files=files, auth=(username, password))
+        response = requests.post('https://XXXXX.zendesk.com/api/v2/help_center/fi/articles/115001339250/attachments.json', files=files, auth=(username, password))
 
         if response.ok == True:
             print(file, 'Uploaded Succesfully')
 
-    elif fnmatch.fnmatch(file, '*VR_Hankintaraportti*'):
+    elif fnmatch.fnmatch(file, '*XXXX_Hankintaraportti*'):
         
         tiedosto = file
         files = {
@@ -119,7 +118,7 @@ for file in os.listdir('.'):
             'file': (tiedosto, open(tiedosto, 'rb')),
         }
 
-        response = requests.post('https://crayonfi.zendesk.com/api/v2/help_center/fi/articles/360006331919/attachments.json', files=files, auth=(username, password))
+        response = requests.post('https://XXXXXX.zendesk.com/api/v2/help_center/fi/articles/360006331919/attachments.json', files=files, auth=(username, password))
 
         if response.ok == True:
             print(file, 'Uploaded Succesfully')
