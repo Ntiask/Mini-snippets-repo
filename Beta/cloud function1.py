@@ -16,8 +16,8 @@ blob.download_to_filename(destination_file_name)
 def read_request(request):
     # handle the POST request
     if request.method == 'POST':
-        Value1 = request.form.get('Name')
-        Value2 = request.form.get('Address')
+        value1 = request.form.get('Name')
+        value2 = request.form.get('Address')
         value3 = request.form.get('Number')
         value4 = request.form.get('addtl')
         value5 = request.form.get('text1')
