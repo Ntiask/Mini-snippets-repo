@@ -1,3 +1,3 @@
-#lollero
+#Niko's Repository for codes.
 
-Testi
+Basically just gathering portfolio of scripts and source codes.
